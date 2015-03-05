@@ -1,7 +1,7 @@
 " Use the Solarized Dark theme
 set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
+" colorscheme solarized
+" let g:solarized_termtrans=1
 
 " Make Vim more useful
 set nocompatible
@@ -46,14 +46,15 @@ set number
 syntax on
 " Highlight current line
 set cursorline
-" Make tabs as wide as two spaces
+" Make tabs as wide as four spaces
 filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set softtabstop=4
 " Show “invisible” characters
-" set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-" set list
+ set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+ set list
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -109,10 +110,11 @@ if has("autocmd")
 endif
 
 " my configure
+" NERDTree
 map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " pathogen
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 execute pathogen#infect()
 
 let g:ycm_global_ycm_extra_conf ='~/.vim/bundle/YouCompleteMe/python/ycm/.ycm_extra_conf.py'
