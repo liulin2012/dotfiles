@@ -109,7 +109,10 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
 
-" my configure
+" My configure
+set foldmethod=syntax
+set nofoldenable
+
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -120,9 +123,20 @@ execute pathogen#infect()
 let g:ycm_global_ycm_extra_conf ='~/.vim/bundle/YouCompleteMe/python/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:syntastic_always_populate_loc_list = 1
+let g:ycm_complete_in_comments=1
+set completeopt-=preview
+let g:ycm_min_num_of_chars_for_completion=1
+" let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_cache_omnifunc=0
 let g:ycm_error_symbol='>>'
 let g:ycm_warning_symbol='>*'
 noremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " nmap <F4> :YcmDiags<CR>
+
+"UltiSnips
+let g:UltiSnipsExpandTrigger="<leader><tab>"
+let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
+let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
+
