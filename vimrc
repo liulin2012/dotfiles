@@ -1,7 +1,7 @@
 " Use the Solarized Dark theme
 set background=dark
-" colorscheme solarized
-" let g:solarized_termtrans=1
+colorscheme solarized
+let g:solarized_termtrans=1
 
 " Make Vim more useful
 set nocompatible
@@ -48,13 +48,13 @@ syntax on
 set cursorline
 " Make tabs as wide as four spaces
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
-set softtabstop=4
+set softtabstop=2
 " Show “invisible” characters
- set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
- set list
+" set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+" set list
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -114,6 +114,7 @@ set foldmethod=syntax
 set nofoldenable
 
 " NERDTree
+autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
